@@ -1,6 +1,9 @@
+const orderTypes = require('../types/orderType')
+const orderAction = require('../types/orderAction')
+
 class Order {
-  #type = 'market'
-  #action = 'buy'
+  #type = orderTypes.market
+  #action = orderAction.buy
   #side = 'bid'
   #quantity = 0
   #filledQuantity = 0
@@ -9,7 +12,7 @@ class Order {
   #isActive = true
   #owner
 
-  constructor ({ type, action, price, quantity, owner }) {
+  constructor ({ type = orderTypes.market, action = orderAction.buy, price, quantity, owner }) {
     this.#type = type
     this.#action = action
     this.#price = price
