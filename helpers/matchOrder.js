@@ -1,12 +1,14 @@
-import Order from '../order'
-import { sortBuyOrders, sortSellOrders } from './sort'
+const Order = require('../order')
+const { sortBuyOrders, sortSellOrders } = require('./sort')
+const orderAction = require('../types/orderAction')
+const orderType = require('../types/orderType')
 
 const matchOrders = (order = new Order(), market = [new Order()]) => {
-  const isBuy = order.action === 'buy'
-  const isLimit = order.type === 'limit'
+  const isBuy = order.action === orderAction.buy
+  const isLimit = order.type === orderType.limit
 
   // filter out buy orders in the market
-  let offers = market.filter((m) => isBuy ? m.action === 'sell' : m.action === 'buy')
+  let offers = market.filter((m) => isBuy ? m.action === orderAction.sell : m.action === orderAction.buy)
 
   // Use FIFO simple matching algorithm to sort the orders
   const sorted = offers.sort(isBuy ? sortSellOrders : sortBuyOrders)
@@ -99,6 +101,6 @@ const matchOrders = (order = new Order(), market = [new Order()]) => {
   }
 }
 
-export {
+module.exports = {
   matchOrders
 }
