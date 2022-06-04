@@ -10,6 +10,7 @@ On completion, these are my notes
 ![Screenshot 2022-06-04 at 11 44 15](https://user-images.githubusercontent.com/54555805/172008449-e7d48a15-96dc-4435-887e-1ddf52c21ccf.png)
 
 - Typescript. I thrive utilizing typescript and it was difficult due to the grenache library not supporting typescript. I was able to evade this using javascript objects
+- Also noticed it was required to use the pro rata matching algorithm but as I did not have an indepth knowledge of it, I used the FIFO algorithm
 
 ### Remainder
 
